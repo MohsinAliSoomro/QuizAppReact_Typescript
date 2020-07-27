@@ -63,7 +63,7 @@ function App() {
         </div>
         <div className="row mb-2 text-center">
           <div className="col">
-  <p className="h4">Score : {score} QNo : {currentState}</p>
+            <p className="h4">Score : {score} QNo : {currentState}</p>
           </div>
           <div className="col">
             <p className="h4">Game : {gameover}</p>
@@ -82,6 +82,7 @@ function App() {
           enablebtn={submitBtn}
         />
       </div>
+      <p className="text-white">Developer Mohsin Ali Soomro</p>
     </div>
   );
 }
