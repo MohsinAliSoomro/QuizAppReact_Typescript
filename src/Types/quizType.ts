@@ -1,4 +1,4 @@
-import { FormEvent } from "react"
+import React from "react"
 
 export type Quiz = {
     category: string
@@ -18,4 +18,5 @@ export type QuestionPropsType = {
     question: string
     options: string[]
     callback: (e: React.FormEvent<EventTarget>,userAns:string) => void
+    enablebtn:boolean
 }
