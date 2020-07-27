@@ -10,7 +10,7 @@ function App() {
 
   const [currentState, setCurrentState] = useState(0);
 
-  const message = <h1>Complete Quiz</h1>;
+  const [score, SetScore] = useState(0)
 
   useEffect(() => {
     async function getDetailsAPI() {
@@ -21,19 +21,26 @@ function App() {
     getDetailsAPI()
   }, [])
 
-  const handleSubmit = (e: React.FormEvent<EventTarget>) => {
+  const handleSubmit = (e: React.FormEvent<EventTarget>, userAns: string) => {
     e.preventDefault();
+    const currentQuestion: questionType = quizdata[currentState];
+    if (userAns === currentQuestion.answer) {
+      SetScore(1 + score)
+    }
     if (currentState !== quizdata.length - 1)
-        setCurrentState(1 + currentState)
-    else return message
+      setCurrentState(1 + currentState)
+    else {
+      alert("Your Score is " + score + " out of " + quizdata.length)
+      SetScore(0)
+      setCurrentState(0)
+    }
   }
 
   if (!quizdata.length)
     return (<h1>loading...</h1>)
   return (
     <div className="App">
-      {message}
-      {/* <h1>SCORE : {score}</h1> */}
+      <h1>Score : {score}</h1>
       <QuestionCard
         options={quizdata[currentState].options}
         question={quizdata[currentState].question}
