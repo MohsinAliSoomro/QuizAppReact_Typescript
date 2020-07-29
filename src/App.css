@@ -1,6 +1,74 @@
-body{
+/* body{
   background-image: url('./back.jpg');
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+} */
+body{
+  background-color:rgb(244, 248, 247) ;
+  
+}
+.heading-logo{
+  text-decoration: underline;
+  text-shadow: 1px 1px #f4b41a;
+}
+.laoding{
+  text-align: center;
+  margin-top: 50px;
+  color: #143d59;
+}
+.heading-container{
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4b41a;
+  margin-bottom: 8px;
+  padding: 5px 15px;
+  color: #143d59;
+  box-shadow: 1px 1px 7px rgba(0, 0,0,0.4);
+}
+
+.bg-color{
+  background-color: #f4b41a;
+  color: #143d59;
+  box-shadow: 1px 1px 7px rgba(0, 0,0,0.4);
+}
+.opt-container{
+  display: flex;
+  background-color: #f4b41a;
+  color: #143d59;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  box-shadow: 1px 1px 7px rgba(0, 0,0,0.4);
+}
+.opt-radio{
+  margin: 10px;
+}
+.opt-radio-control{
+  width: 20px;
+  height: 20px;
+}
+.opt-radio-control:disabled{
+  opacity: 50%;
+}
+.opt-lbl{
+  margin: 8px;
+}
+.opt-btn{
+  width: 100%;
+  padding: 5px;
+  font-size: 25px;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 7px rgba(0, 0,0,0.4);
+}
+.opt-btn:disabled{
+  opacity: 50%;
+}
+.start-btn{
+  border: 0px;
+  border-radius: 40px;
+  font-size: 10px;
+}
+.start-btn:hover{
+  border-radius: 5px;
 }

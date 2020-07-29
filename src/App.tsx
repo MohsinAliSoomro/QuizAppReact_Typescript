@@ -1,11 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap-4-react/dist/bootstrap-4-react';
 import './App.css'
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 import { getApi } from './service/quizService';
 import { questionType } from './Types/quizType'
 import { QuestionCard } from './components/QuestionCard'
 
+
 function App() {
+
+  AOS.init({
+    // Global settings:
+    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+    initClassName: 'aos-init', // class applied after initialization
+    animatedClassName: 'aos-animate', // class applied on animation
+    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+    offset: 120, // offset (in px) from the original trigger point
+    delay: 0, // values from 0 to 3000, with step 50ms
+    duration: 400, // values from 0 to 3000, with step 50ms
+    easing: 'ease', // default easing for AOS animations
+    once: false, // whether animation should happen only once - while scrolling down
+    mirror: false, // whether elements should animate out while scrolling past them
+    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+  });
+
 
   const [quizdata, setQuizData] = useState<questionType[]>([]);
 
@@ -52,28 +79,42 @@ function App() {
   }
 
   if (!quizdata.length)
-    return (<h1>loading...</h1>)
+    return (<h1 className="laoding">loading...</h1>)
   return (
-    <div className="back">
-      <div className="container text-white">
+    <div className="container">
+      <div
+        data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+      >
         <div className="row">
           <div className="col text-center">
-            <p className="display-4">Quiz App</p>
+            <div
+              data-aos="fade-down"
+              data-aos-delay="100"
+              data-aos-duration="1000"
+              data-aos-easing="ease-in-out"
+            >
+              <p className="display-4 heading-logo">Quiz App</p>
+            </div>
           </div>
         </div>
-        <div className="row mb-2 text-center">
-          <div className="col">
-            <p className="h4">Score : {score} QNo : {currentState}</p>
+        <div
+          data-aos="fade-left"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        >
+          <div className="heading-container">
+            <p className="h5">Score : {score} <br /> QNo : {currentState}</p>
+            <p className="h5">Game : <br /> {gameover}</p>
+            <button className="start-btn bg-color" disabled={enablebtn} onClick={handleStart}>Start Game</button>
           </div>
-          <div className="col">
-            <p className="h4">Game : {gameover}</p>
-          </div>
-          <div className="col">
-            <button className="btn btn-primary" disabled={enablebtn} onClick={handleStart}>Start Game</button>
-          </div>
-
-
-
         </div>
         <QuestionCard
           options={quizdata[currentState].options}
@@ -81,8 +122,8 @@ function App() {
           callback={handleSubmit}
           enablebtn={submitBtn}
         />
+        <p >Developer Mohsin Ali Soomro</p>
       </div>
-      <p className="text-white">Developer Mohsin Ali Soomro</p>
     </div>
   );
 }
