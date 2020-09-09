@@ -21,7 +21,7 @@ export const QuestionCard: React.FC<QuestionPropsType> = ({ question, options, c
                 {
                     options.map((item: string, ind: number) => {
                         return (
-                            <div
+                            <div key={ind}
                                 data-aos="fade-up"
                                 data-aos-offset="200"
                                 data-aos-delay="50"

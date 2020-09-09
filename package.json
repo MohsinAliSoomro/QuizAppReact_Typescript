@@ -14,6 +14,7 @@
     "@wellyshen/use-web-animations": "^0.5.1",
     "aos": "^3.0.0-beta.6",
     "bootstrap-4-react": "0.0.59",
+    "firebase": "^7.19.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",

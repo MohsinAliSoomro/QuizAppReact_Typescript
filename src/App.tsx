@@ -6,7 +6,21 @@ import AOS from 'aos';
 import { getApi } from './service/quizService';
 import { questionType } from './Types/quizType'
 import { QuestionCard } from './components/QuestionCard'
+import {messaging} from './sevices/firebase'
 
+Notification.requestPermission((permissions) => {
+  console.warn(permissions);
+  if (permissions === "granted") {
+    messaging
+      .getToken()
+      .then((currentToken:string) => {
+        console.log(currentToken);
+      })
+      .catch((err:any) => {
+        console.log("Something is wrong... " + err);
+      });
+  }
+});
 
 function App() {
 
