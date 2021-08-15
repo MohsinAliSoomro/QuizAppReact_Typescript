@@ -1,13 +1,13 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDBssBOwPrr7tyG3DK5r4jsguO95x5hlIs",
-  authDomain: "pushnotification-36bfa.firebaseapp.com",
-  databaseURL: "https://pushnotification-36bfa.firebaseio.com",
-  projectId: "pushnotification-36bfa",
-  storageBucket: "pushnotification-36bfa.appspot.com",
-  messagingSenderId: "309907246222",
-  appId: "1:309907246222:web:e074739c8d10f7b7b70ddf",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  databaseURL:  process.env.REACT_APP_databaseURL,
+  projectId:process.env.REACT_APP_projectId,
+  storageBucket:process.env.REACT_APP_storageBucket,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 firebase.initializeApp(firebaseConfig);
